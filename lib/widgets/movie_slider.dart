@@ -41,8 +41,8 @@ class _MoviePoster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 130,
-      height: 210,
+      width: 180,
+      height: 250,
       color: Color.fromARGB(255, 62, 207, 135),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Column(
@@ -54,12 +54,12 @@ class _MoviePoster extends StatelessWidget {
               child: const FadeInImage(
                 placeholder: AssetImage('assets/foto.jpeg'),
                 image: AssetImage('assets/foto.jpeg'),
-                width: 130,
-                height: 165,
+                width: 180,
+                height: 100,
               ),
             ),
           ),
-          const SizedBox(height: 5,),
+          const SizedBox(height: 8,),
           const Text('Quiero mover el bote, me gusta.. mueve! ',
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
