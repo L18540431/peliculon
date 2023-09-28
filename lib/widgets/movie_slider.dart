@@ -43,7 +43,7 @@ class _MoviePoster extends StatelessWidget {
     return Container(
       width: 180,
       height: 250,
-      color: Color.fromARGB(255, 62, 207, 135),
+      color: Color.fromARGB(253, 24, 102, 219),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Column(
         children: [
