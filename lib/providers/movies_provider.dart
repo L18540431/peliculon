@@ -2,12 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:peliculon/models/movie.dart';
 import 'package:peliculon/models/now_playing_response.dart';
 
 class MoviesProvider extends ChangeNotifier {
   String _baseUrl = 'api.themoviedb.org';
   String _apiKey = '9dc27117b000e7e5acfb365fa957971a';
   String _language = 'es-MX';
+
+  List <Movie> OnDisplayMovies=[];
 
   MoviesProvider() {
     getOnDisplayMovies();
@@ -22,6 +25,9 @@ class MoviesProvider extends ChangeNotifier {
     //print(decodeData);
     //print(response.body);
     final nowPLayingResponse = NowPlayingResponse.fromRawJson(response.body);
+    OnDisplayMovies =  nowPLayingResponse.results;
+    //le cumnicamos a todos los widgets que estan escuchando que se cambió la data y por lo tanto se tienen que redibujar
+    notifyListeners();
     print(nowPLayingResponse.results[0].title);
   }
 }
