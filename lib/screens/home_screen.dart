@@ -4,25 +4,37 @@ import 'package:peliculon/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
 
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //Colocamos la instancia de MoviesProvider
     final moviesProvider = Provider.of<MoviesProvider>(context);
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         elevation: 0,
         actions: [
-          IconButton(onPressed: () { }, icon: Icon(Icons.search_outlined),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search_outlined),
           )
         ],
-        title: const Center(child: const Text ('peliculones en cine')),
-      
+        title: const Center(
+          child: Text('Peliculas en cine'),
+        ),
       ),
       body: Column(
-        children: [CardSwipper(movies : moviesProvider.OnDisplayMovies,), MovieSlider()],),
+        children: [
+          CardSwipper(
+            movies: moviesProvider.onDisplayMovies,
+          ),
+          MovieSlider(
+            movies: moviesProvider.popularMovies,
+          )
+        ],
+      ),
     );
-    
   }
-} 
+}
